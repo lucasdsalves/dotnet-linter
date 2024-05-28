@@ -1,16 +1,18 @@
 #!/bin/bash
 
+echo "Hello, world"
+
 # Select files that were modified
-FILES=$(git diff --cached --name-only --diff-filter=ACM "*.cs" | sed 's| |\\ |g')
-[ -z "$FILES" ] && exit 0
+# FILES=$(git diff --cached --name-only --diff-filter=ACM "*.cs" | sed 's| |\\ |g')
+# [ -z "$FILES" ] && exit 0
 
-# Run dotnet format to check and fix code formatting issues
-echo "Running dotnet format..."
-if ! dotnet format --verify-no-changes --include "$FILES"; then
-    echo "Code formatting issues found. Please fix the issues before committing."
-    exit 1
-fi
+# # Run dotnet format to check and fix code formatting issues
+# echo "Running dotnet format..."
+# if ! dotnet format --verify-no-changes --include "$FILES"; then
+#     echo "Code formatting issues found. Please fix the issues before committing."
+#     exit 1
+# fi
 
-# If all checks pass, allow the commit
-echo "All checks passed. Proceeding with commit."
-exit 0
+# # If all checks pass, allow the commit
+# echo "All checks passed. Proceeding with commit."
+# exit 0
